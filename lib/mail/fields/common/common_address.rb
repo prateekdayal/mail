@@ -41,6 +41,7 @@ module Mail
   
     # Returns the display name of all the addresses in the address list
     def display_names
+      tree.addresses.map {|a| a.decoded}
       list = tree.addresses.map { |a| a.display_name }
       Mail::AddressContainer.new(self, list)
     end
